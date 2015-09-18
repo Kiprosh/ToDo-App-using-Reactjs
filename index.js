@@ -1,4 +1,4 @@
-ToDoList = React.createClass({ 
+ToDoList = React.createClass({
   getInitialState: function(){
     return {
       items: [
@@ -19,22 +19,19 @@ ToDoList = React.createClass({
   handleDelete: function(index){
      existingItems = this.state.items;
      delete existingItems[index];
-     this.setState({items: existingItems});           
+     this.setState({items: existingItems});
   },
-  handleEdit: function(){
-    alert("rohan");
-  },
-  render: function(){    
+  render: function(){
     return (
       <div id="mainContainer">
         <h1>Sweet ToDo List in React.js</h1>
         <ul>
           {
-            this.state.items.map(function(item, index){               
+            this.state.items.map(function(item, index){
               return <ToDoListItem item={item} handleDelete={this.handleDelete.bind(null, index)}/>
             }, this)
           }
-        </ul> 
+        </ul>
         <ToDoListForm onFormSubmit={this.updateItems}/>
       </div>
     );
@@ -47,7 +44,7 @@ ToDoListItem = React.createClass({
       item: ''
     }
   },
-  handleChange: function(event){    
+  handleChange: function(event){
     this.setState({text: event.target.value});
   },
   render: function(){
@@ -55,8 +52,8 @@ ToDoListItem = React.createClass({
         <div>
           <li>
             {this.props.item}
-             <a href="#" ref='item' onClick={this.props.handleDelete}> Delete</a>            
-          </li>           
+             <a href="#" ref='item' onClick={this.props.handleDelete}> Delete</a>
+          </li>
         </div>
     );
   }
@@ -79,7 +76,7 @@ ToDoListForm = React.createClass({
     return;
   },
   render: function(){
-    return (      
+    return (
       <div>
           <span> Add New ToDo Item </span>
           <form onSubmit={this.handleSubmit}>
