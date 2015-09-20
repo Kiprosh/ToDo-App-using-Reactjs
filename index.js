@@ -25,6 +25,7 @@ ToDoList = React.createClass({
     return (
       <div id="mainContainer">
         <h1>Sweet ToDo List in React.js</h1>
+        <span className="instruction">Click individual todo item to "Inline Edit"</span>
         <ul>
           {
             this.state.items.map(function(item, index){
@@ -36,6 +37,17 @@ ToDoList = React.createClass({
       </div>
     );
   }
+});
+
+var EditableField = React.createClass({
+    componentDidMount: function() {
+      $(this.refs.editable.getDOMNode()).editable()
+    },
+    render: function() {
+      return (
+        <a href="#" ref="editable" id="edit-item" data-type="text" data-title="Edit value">{this.props.item}</a>
+      );
+    }
 });
 
 ToDoListItem = React.createClass({
@@ -51,8 +63,10 @@ ToDoListItem = React.createClass({
     return (
         <div>
           <li>
-            {this.props.item}
-             <a href="#" ref='item' onClick={this.props.handleDelete}> Delete</a>
+             <EditableField item={this.props.item}/>
+          </li>
+          <li>
+             <a href="#" ref='item' id="delete-item" onClick={this.props.handleDelete}> Delete</a>
           </li>
         </div>
     );

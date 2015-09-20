@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link href="/css/jquery-editable.css" rel="stylesheet">
   <meta charset="utf-8">
   <title>ToDo List using React.js</title>
 </head>
@@ -18,8 +19,15 @@
       </p>
     </div>
 
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="build/react.js"></script>
   <script src="build/JSXTransformer.js"></script>
+  <script src="build/jquery-editable-poshytip.min.js"></script>
   <script type="text/jsx" src="index.js"></script>
+
+  <script>
+    $.fn.editable.defaults.mode = 'inline';
+  </script>
+
 </body>
 </html>
