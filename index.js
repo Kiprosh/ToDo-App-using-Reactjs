@@ -64,8 +64,6 @@ ToDoListItem = React.createClass({
         <div>
           <li>
              <EditableField item={this.props.item}/>
-          </li>
-          <li>
              <a href="#" ref='item' id="delete-item" onClick={this.props.handleDelete}> Delete</a>
           </li>
         </div>
