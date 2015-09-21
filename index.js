@@ -56,9 +56,6 @@ ToDoListItem = React.createClass({
       item: ''
     }
   },
-  handleChange: function(event){
-    this.setState({text: event.target.value});
-  },
   render: function(){
     return (
         <div>
