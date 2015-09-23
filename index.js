@@ -1,4 +1,10 @@
 ToDoList = React.createClass({
+  componentDidMount: function() {
+   $(this.refs.sortable.getDOMNode()).sortable();
+  },
+  componentDidUpdate: function(a,b){
+   $(this.refs.sortable.getDOMNode()).sortable();
+  },
   getInitialState: function(){
     return {
       items: [
@@ -11,7 +17,7 @@ ToDoList = React.createClass({
     }
   },
   updateItems: function(newItem){
-    if (newItem !== ""){
+    if (newItem.trim() !== ""){
       var allItems = this.state.items.concat([newItem]);
       this.setState({items: allItems});
     }
@@ -25,8 +31,8 @@ ToDoList = React.createClass({
     return (
       <div id="mainContainer">
         <h1>Sweet ToDo List in React.js</h1>
-        <span className="instruction">Click individual todo item to "Inline Edit"</span>
-        <ul>
+        <span className="instruction">INSTRUCTIONS: To edit , click individual todo item and it will "Inline Edit". To re-order your list, drag and drop list items.</span>
+        <ul className="sortable" ref="sortable">
           {
             this.state.items.map(function(item, index){
               return <ToDoListItem item={item} handleDelete={this.handleDelete.bind(null, index)}/>
@@ -41,7 +47,7 @@ ToDoList = React.createClass({
 
 var EditableField = React.createClass({
     componentDidMount: function() {
-      $(this.refs.editable.getDOMNode()).editable()
+      $(this.refs.editable.getDOMNode()).editable();
     },
     render: function() {
       return (
@@ -58,7 +64,7 @@ ToDoListItem = React.createClass({
   },
   render: function(){
     return (
-        <div>
+        <div className="individual-todo-item">
           <li>
              <EditableField item={this.props.item}/>
              <a href="#" ref='item' id="delete-item" onClick={this.props.handleDelete}> Delete</a>

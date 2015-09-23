@@ -15,8 +15,23 @@ ul {
 
 
 ul li {
-    padding: 10px 30px 5px 5px;
+  padding: 10px 30px 5px 5px;
+  width: 450px;
+  overflow: auto;
 }
+
+.individual-todo-item
+{
+  color: red;
+}
+.sortable li {
+  list-style: none;
+  border: 1px solid #CCC;
+  margin: 5px;
+  padding: 5px;
+  height: 30px;
+}
+
 
 #delete-item {
   margin-left: 10px;
@@ -51,7 +66,6 @@ input[type=submit] {
   padding: 5px 15px;
   font-size: 1.1em;
 }
-
 
 .instruction
 {
