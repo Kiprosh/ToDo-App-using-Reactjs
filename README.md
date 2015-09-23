@@ -9,4 +9,6 @@ Steps to run this app on local
 
      python -m SimpleHTTPServer
 
-3) Open url `http://localhost:8000` on your local in Chrome or FF or Safari browser
+3) Open url `http://localhost:8000` on your local in Chrome or FF or Safari browser.
+
+4) To edit, click individual todo item and it will "Inline Edit" to update. To re-order list items, drag and drop list items.
